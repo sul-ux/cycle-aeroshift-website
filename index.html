@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#370e00",
+                        "surface-container-lowest": "#0e0e0e",
+                        "primary-fixed": "#ffdbce",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-secondary-fixed-variant": "#474646",
+                        "error-container": "#93000a",
+                        "inverse-on-surface": "#303030",
+                        "on-surface": "#e4e2e1",
+                        "secondary-fixed": "#e5e2e1",
+                        "surface-variant": "#353535",
+                        "surface-container-low": "#1b1c1c",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-surface-variant": "#e4bfb1",
+                        "on-secondary-container": "#bab8b7",
+                        "primary": "#ffb599",
+                        "surface-container": "#1f2020",
+                        "on-secondary": "#313030",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-tertiary-container": "#2b2d2d",
+                        "outline-variant": "#5b4137",
+                        "on-background": "#e4e2e1",
+                        "on-primary-fixed-variant": "#7f2b00",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "tertiary-fixed": "#e2e2e2",
+                        "secondary": "#c8c6c5",
+                        "on-tertiary": "#2f3131",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#131313",
+                        "surface-dim": "#131313",
+                        "primary-fixed-dim": "#ffb599",
+                        "primary-container": "#ff5f00",
+                        "error": "#ffb4ab",
+                        "tertiary": "#c6c6c7",
+                        "on-primary": "#5a1c00",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-bright": "#393939",
+                        "surface-tint": "#ffb599",
+                        "surface-container-highest": "#353535",
+                        "inverse-primary": "#a63b00",
+                        "tertiary-container": "#939494",
+                        "background": "#131313",
+                        "secondary-container": "#4a4949",
+                        "outline": "#ab8a7d",
+                        "inverse-surface": "#e4e2e1",
+                        "on-primary-container": "#531a00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin": "32px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "unit": "8px",
+                        "section-gap": "120px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "display-xl": ["Space Grotesk"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Space Grotesk"],
+                        "headline-md": ["Space Grotesk"],
+                        "label-caps": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "display-xl": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-caps": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dot-grid {
+            background-image: radial-gradient(circle, #333 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .technical-border {
+            border-image: linear-gradient(to right, #ff5f00, transparent) 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-10 py-5 bg-neutral-950/95 backdrop-blur-sm border-b border-neutral-800">
+<div class="text-2xl font-black italic text-white tracking-tighter">VELOCORE</div>
+<div class="hidden md:flex gap-10">
+<a class="font-['Space_Grotesk'] font-bold tracking-tighter uppercase text-neutral-400 font-medium hover:text-orange-500 hover:border-neutral-700 transition-all duration-200 active:scale-95 duration-100" href="#">Bikes</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tighter uppercase text-neutral-400 font-medium hover:text-orange-500 hover:border-neutral-700 transition-all duration-200 active:scale-95 duration-100" href="#">Engineering</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tighter uppercase text-orange-500 border-b-2 border-orange-600 pb-1 hover:text-orange-500 hover:border-neutral-700 transition-all duration-200 active:scale-95 duration-100" href="#">Performance</a>
+<a class="font-['Space_Grotesk'] font-bold tracking-tighter uppercase text-neutral-400 font-medium hover:text-orange-500 hover:border-neutral-700 transition-all duration-200 active:scale-95 duration-100" href="#">Store</a>
+</div>
+<div class="flex gap-6 items-center">
+<button class="font-['Space_Grotesk'] font-bold tracking-tighter uppercase text-neutral-400 font-medium hover:text-white transition-colors">Login</button>
+<button class="font-['Space_Grotesk'] font-bold tracking-tighter uppercase px-6 py-2 bg-primary-container text-on-primary-container hover:bg-orange-400 transition-all active:scale-95">Configure</button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<div id="hero-scroll-track" style="height: 500vh;">
+<section class="relative h-[100vh] flex items-center px-10 pt-20 overflow-hidden sticky top-0">
+<canvas id="hero-canvas" class="absolute inset-0 z-0 w-full h-full object-cover grayscale opacity-60"></canvas>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent z-0 pointer-events-none"></div>
+<div class="relative z-10 max-w-4xl pointer-events-none">
+<span class="inline-block font-label-caps text-primary-container mb-4 tracking-[0.3em] pointer-events-auto">VELOCORE PRECISION</span>
+<h1 class="font-display-xl text-white mb-6 uppercase pointer-events-auto">PRECISION ENGINEERED.<br/>BORN FOR THE ROAD.</h1>
+<p class="font-body-lg text-on-surface-variant mb-10 max-w-xl pointer-events-auto">
+                Experience the ultimate fusion of aerodynamics and power. Every weld, every fiber, every angle is obsessively crafted for the elite cyclist who demands nothing but the absolute limit.
+            </p>
+<div class="flex gap-4 pointer-events-auto">
+<button class="bg-primary-container text-white font-label-caps px-10 py-5 hover:bg-orange-400 transition-all transform active:scale-95 border-2 border-primary-container">
+                    Explore the Collection
+                </button>
+<button class="border-2 border-white/20 text-white font-label-caps px-10 py-5 hover:bg-white hover:text-black transition-all transform active:scale-95">
+                    View Specs
+                </button>
+</div>
+</div>
+<div class="absolute bottom-10 right-10 z-10 hidden md:block pointer-events-none">
+<div class="flex flex-col gap-2">
+<div class="h-[2px] w-20 bg-primary-container"></div>
+<div class="h-[2px] w-12 bg-neutral-600"></div>
+<div class="h-[2px] w-12 bg-neutral-600"></div>
+</div>
+</div>
+</section>
+</div>
+<!-- Features Grid -->
+<section class="py-[120px] px-10 bg-surface dot-grid">
+<div class="max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="p-8 border border-neutral-800 bg-surface-container-low hover:border-primary-container transition-colors group">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-6">architecture</span>
+<h3 class="font-headline-md text-white mb-4 uppercase">Ultralight Carbon Frame</h3>
+<p class="text-on-surface-variant font-body-md">Utilizing military-grade T1100 carbon fiber for a weight-to-stiffness ratio that redefines industry standards.</p>
+</div>
+<div class="p-8 border border-neutral-800 bg-surface-container-low hover:border-primary-container transition-colors group">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-6">settings_input_component</span>
+<h3 class="font-headline-md text-white mb-4 uppercase">Electronic Shifting</h3>
+<p class="text-on-surface-variant font-body-md">Precision wireless transmission delivering millisecond shifts under peak power output without hesitation.</p>
+</div>
+<div class="p-8 border border-neutral-800 bg-surface-container-low hover:border-primary-container transition-colors group">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-6">air</span>
+<h3 class="font-headline-md text-white mb-4 uppercase">Integrated Aerodynamics</h3>
+<p class="text-on-surface-variant font-body-md">Fully concealed cable routing and computational fluid dynamics tested profiles for 14-watt savings at 45km/h.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Lifestyle Gallery -->
+<section class="py-[120px] px-10 bg-neutral-950">
+<div class="max-w-container-max mx-auto">
+<div class="mb-16">
+<h2 class="font-headline-lg text-white uppercase mb-2">FIELD TESTED</h2>
+<div class="h-1 w-24 bg-primary-container"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="relative group overflow-hidden h-[500px]">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale hover:grayscale-0" data-alt="A professional cyclist in aerodynamic gear climbing a steep, winding asphalt road in the Italian Alps at dawn. The morning sun casts long, dramatic shadows and highlights the moisture on the road surface. The atmosphere is crisp and high-contrast, with deep green alpine forests and a clear blue morning sky. The focal point is the speed and intensity of the rider." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcZt50n2Rir7szRLOm_Wq4m8pPvYRM_Zki01nZzjBj1iqTeTtxMdEaiJTGvWYyvkePRdZHiDoZ3KJ6CtgghyPKavy44jQslxlcnHiIKbeJZIvVGzkXtULM2bPkpTVtQ4-kWLJ5p-nfJ6uB4C7a1p7N493fD0co4yr_rIrYz5eq1LBRmHdGGb-JAP527SKMyVL1koX4HVub27m-BVlfENY1-1JOae8UxDHmQBhHJ32LY334YAqaVoccPk6sdgGkZU8Ufr-GA_i7EsE"/>
+<div class="absolute bottom-8 left-8">
+<span class="bg-primary-container text-black font-label-caps px-4 py-1">ALPINE ASCENT</span>
+</div>
+</div>
+<div class="relative group overflow-hidden h-[500px]">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale hover:grayscale-0" data-alt="A sleek black performance bike leaning against a brutalist concrete wall in an urban setting at dusk. The scene is lit by cold blue streetlights and a warm orange glow from a nearby window, creating a striking complementary color scheme. The bike's carbon fiber details are visible against the rough texture of the architecture. The mood is modern, technical, and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd566vUUntcsoOGU8cASaoyiFafG5zLkCAroJ6WJi60kfEThyFP4FXv1ZZXPWwXygQ873W3jS0ERvvDo93LQTC-NgHkk7m5LqSajIi1HntqcP1kfEV3QA0zI4ysrvOldxGiLefG59v-RS9lvxUW_JnQs4Dd9IX95LV9iE-MFoW0gqf0kOEKbmHiM_hGUX1YbnjDi23AVLQXz24Zhle9FLvLIaJhymE7yqb6KtvcZC30B0UTOU1uhepxA1GP_sgXFBcGWvvMM_wWCc"/>
+<div class="absolute bottom-8 left-8">
+<span class="bg-primary-container text-black font-label-caps px-4 py-1">URBAN CRITERIUM</span>
+</div>
+</div>
+<div class="relative group overflow-hidden h-[500px]">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale hover:grayscale-0" data-alt="An extreme close-up of a high-performance bicycle's drivetrain and rear wheel spinning. The motion is captured with a slight blur to emphasize speed, while the mechanical precision of the gear teeth and carbon spokes is sharp. The lighting is high-contrast, highlighting metallic surfaces and the intricate carbon weave patterns against a dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRboODZ0hDlDcYiGFX9TnfsEom60cSdttkEJzijfM49TnMUTaWFjFCU0_maMac96xaxonUcrgvR3cSv01ZTgNMHLvAn8TOtQxOpgJiBjP_tdtB_3Et03I2iRp57G44Nea_g4hKPq4eFKe1uF9M7DjbyEGUUm2tTblZFf-fVX0A1MgW2fkm63StpHXsqOmpak9_lFhX6KiO5cTj-TG3udUQh4uudfb9WGE8OeuAfUdzVpHjidZu3b6acXEl70MmnfVou2cSkhdJE8w"/>
+<div class="absolute bottom-8 left-8">
+<span class="bg-primary-container text-black font-label-caps px-4 py-1">MECHANICAL PRECISION</span>
+</div>
+</div>
+<div class="relative group overflow-hidden h-[500px]">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale hover:grayscale-0" data-alt="A wide-angle landscape shot of a long, empty highway stretching across a desolate desert landscape at high noon. A lone cyclist is visible in the far distance, appearing as a sharp, small silhouette. The heat shimmer on the asphalt is visible, and the overall color palette is stark, bright, and dominated by earthy tones and high-key whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxvZd79-EQTVdEn54Z7Lk9A9BBnpO_DqKbz0uWS8qYGFEeOFgcIoAWAR9SDcRasVevfF4YsCfeXtyHs18uZygUGabinBC61181_ICyzFOLVgEzOZHiAF0YxP6bdtKnVTVIbDL0j-h73Lmw95mpim3pL06xYuPRwk9jAymiRfGCXaM8Oxj3cHVH29DQES3wRicMzB1KcdsoRdW_JT-1hnJG5XG5kg0yIFKbq_827MdvfAuuADfU-pWFyz5aGD03brGX5AGgQis6Ii8"/>
+<div class="absolute bottom-8 left-8">
+<span class="bg-primary-container text-black font-label-caps px-4 py-1">ENDURANCE LIMIT</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Specs Section -->
+<section class="py-[120px] bg-surface-container-lowest border-y border-neutral-900">
+<div class="max-container mx-auto px-10">
+<div class="flex flex-col lg:flex-row items-center gap-20">
+<div class="w-full lg:w-1/2">
+<h2 class="font-headline-lg text-white mb-8 uppercase tracking-tight">TECHNICAL SPECIFICATIONS</h2>
+<div class="space-y-6">
+<div class="flex items-center justify-between border-b border-neutral-800 pb-4 hover:border-primary-container transition-colors cursor-default group">
+<span class="font-label-caps text-neutral-400 group-hover:text-white">DRIVETRAIN</span>
+<span class="font-body-md text-white">SRAM RED eTap AXS 12sp</span>
+</div>
+<div class="flex items-center justify-between border-b border-neutral-800 pb-4 hover:border-primary-container transition-colors cursor-default group">
+<span class="font-label-caps text-neutral-400 group-hover:text-white">WHEELSET</span>
+<span class="font-body-md text-white">Velocore C60 Aero Carbon</span>
+</div>
+<div class="flex items-center justify-between border-b border-neutral-800 pb-4 hover:border-primary-container transition-colors cursor-default group">
+<span class="font-label-caps text-neutral-400 group-hover:text-white">TOTAL WEIGHT</span>
+<span class="font-body-md text-white">6.8kg (Size 56)</span>
+</div>
+<div class="flex items-center justify-between border-b border-neutral-800 pb-4 hover:border-primary-container transition-colors cursor-default group">
+<span class="font-label-caps text-neutral-400 group-hover:text-white">TIRES</span>
+<span class="font-body-md text-white">Vittoria Corsa Speed G2.0</span>
+</div>
+<div class="flex items-center justify-between border-b border-neutral-800 pb-4 hover:border-primary-container transition-colors cursor-default group">
+<span class="font-label-caps text-neutral-400 group-hover:text-white">COCKPIT</span>
+<span class="font-body-md text-white">Integrated Carbon Aero One</span>
+</div>
+</div>
+</div>
+<div class="w-full lg:w-1/2 relative">
+<img class="w-full grayscale border-l-2 border-primary-container pl-10" data-alt="A studio side-view photograph of a high-performance carbon bicycle frame without wheels, mounted on a technical display stand. The background is a dark gray with a subtle blueprint grid overlay. Precision laser lines illuminate certain parts of the frame to show geometric alignment. The lighting is cold and clinical, emphasizing the mechanical engineering and technical perfection of the product." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-ejMGeaKnHuIs1Dl7d0KyRWNt7dlTcSSChGjkGJMCfF7tdnJwzreIN2f10NPUqZHxyiljD-82VumZq6cd6Qz3_Egyt5aeaUp4rvxMKRf6aJ-7qyogrzNxldKLOgg5rf4bZdg72GSz4-xZkK8kihEdwnANZjksxAeqVySf3b17DLehFwkXd4rhT2CgWS6_JJLSOVtePLjJI5cP-rxbWgD5DbdUok0bujzycOJSKLa5TTaHapltF1nbMRuOd2PQPkOSzUpzsqb5pwo"/>
+<div class="absolute -bottom-4 -right-4 p-6 bg-primary-container text-black font-headline-md italic font-black">
+                        7.2 WATT REDUCTION
+                    </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-[120px] px-10 bg-surface">
+<div class="max-w-container-max mx-auto text-center mb-20">
+<h2 class="font-headline-lg text-white uppercase mb-4">THE RIDER'S CHOICE</h2>
+<p class="font-body-lg text-neutral-400 max-w-2xl mx-auto">Proven on the Grand Tour circuits and tested by the world's most demanding athletes.</p>
+</div>
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="bg-surface-container p-12 border-l-4 border-primary-container">
+<span class="material-symbols-outlined text-primary-container mb-6 text-4xl">format_quote</span>
+<p class="font-headline-md text-white mb-8 italic">"The responsiveness of the frame is unlike anything I've ridden. On the descents, it feels like it's on rails—no chatter, just pure mechanical grip."</p>
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 bg-neutral-800"></div>
+<div>
+<div class="font-label-caps text-white">MARCUS VERSTAPPEN</div>
+<div class="text-xs text-primary-container uppercase tracking-widest">PRO CONTINENTAL TEAM CAPTAIN</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container p-12 border-l-4 border-primary-container">
+<span class="material-symbols-outlined text-primary-container mb-6 text-4xl">format_quote</span>
+<p class="font-headline-md text-white mb-8 italic">"When you're pushing 400 watts in a breakaway, you need to know the machine is working with you. Velocore is that extension of my body."</p>
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 bg-neutral-800"></div>
+<div>
+<div class="font-label-caps text-white">ELENA ROSSI</div>
+<div class="text-xs text-primary-container uppercase tracking-widest">WORLD ENDURANCE CHAMPION</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-[120px] px-10 bg-neutral-950 relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="dot-grid w-full h-full"></div>
+</div>
+<div class="max-w-4xl mx-auto text-center relative z-10">
+<h2 class="font-display-xl text-white uppercase mb-8">JOIN THE VELOCORE COMMUNITY</h2>
+<p class="font-body-lg text-neutral-400 mb-12">Be the first to access technical white papers, early product drops, and exclusive community events.</p>
+<form class="flex flex-col md:flex-row gap-0 border border-neutral-800 group focus-within:border-primary-container transition-colors max-w-2xl mx-auto">
+<input class="bg-neutral-900 border-none flex-grow font-label-caps text-white px-8 py-5 focus:ring-0 placeholder:text-neutral-600" placeholder="EMAIL ADDRESS" type="email"/>
+<button class="bg-primary-container text-black font-label-caps px-10 py-5 hover:bg-white transition-all transform active:scale-95">
+                    SUBSCRIBE
+                </button>
+</form>
+<p class="mt-6 text-xs text-neutral-600 tracking-widest uppercase">BY JOINING, YOU AGREE TO OUR PERFORMANCE PROTOCOLS AND PRIVACY POLICY.</p>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-20 px-10 flex flex-col md:flex-row justify-between items-center gap-10 bg-neutral-950 border-t border-neutral-900">
+<div class="flex flex-col gap-4">
+<div class="text-xl font-black text-white">VELOCORE</div>
+<p class="font-['Space_Grotesk'] text-xs tracking-widest uppercase text-neutral-600">© 2024 VELOCORE PRECISION ENGINEERING. BUILT FOR THE LIMIT.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-['Space_Grotesk'] text-xs tracking-widest uppercase text-neutral-600 hover:text-white transition-colors opacity-80 hover:opacity-100" href="#">Privacy</a>
+<a class="font-['Space_Grotesk'] text-xs tracking-widest uppercase text-neutral-600 hover:text-white transition-colors opacity-80 hover:opacity-100" href="#">Technical Specs</a>
+<a class="font-['Space_Grotesk'] text-xs tracking-widest uppercase text-neutral-600 hover:text-white transition-colors opacity-80 hover:opacity-100" href="#">Warranty</a>
+<a class="font-['Space_Grotesk'] text-xs tracking-widest uppercase text-neutral-600 hover:text-white transition-colors opacity-80 hover:opacity-100" href="#">Rider Support</a>
+<a class="font-['Space_Grotesk'] text-xs tracking-widest uppercase text-neutral-600 hover:text-white transition-colors opacity-80 hover:opacity-100" href="#">Global Retailers</a>
+</div>
+<div class="flex gap-4">
+<div class="h-10 w-10 border border-neutral-800 flex items-center justify-center hover:border-primary-container transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-neutral-600 group-hover:text-primary-container text-xl">share</span>
+</div>
+<div class="h-10 w-10 border border-neutral-800 flex items-center justify-center hover:border-primary-container transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-neutral-600 group-hover:text-primary-container text-xl">language</span>
+</div>
+</div>
+</footer>
+</main>
+<script type="module" src="app.js"></script>
+</body></html>
