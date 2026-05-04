@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#ff5f00",
+                    "surface-dim": "#131313",
+                    "surface": "#131313",
+                    "background": "#131313",
+                    "on-surface": "#e4e2e1",
+                    "on-background": "#e4e2e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin": "32px",
+                    "gutter": "24px",
+                    "unit": "8px",
+                    "section-gap": "120px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Space Grotesk"],
+                    "body-lg": ["Inter"],
+                    "display-xl": ["Space Grotesk"],
+                    "body-md": ["Inter"],
+                    "label-caps": ["Space Grotesk"],
+                    "headline-md": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "display-xl": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                    "label-caps": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        #product-lineup {
+            height: 600vh;
+            position: relative;
+            background-color: #0e0e0e;
+        }
+        .lineup-sticky-container {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 30; /* Text in front */
+            pointer-events: none;
+        }
+        .product-layer.active {
+            opacity: 1;
+            z-index: 40;
+            pointer-events: auto;
+        }
+        .cyclist-canvas {
+            position: absolute;
+            bottom: 5%;
+            left: 0;
+            width: 600px;
+            height: 400px;
+            z-index: 10; /* Cyclist in background */
+            pointer-events: none;
+            opacity: 0.8; /* Subtle transparency for better integration */
+        }
+        .product-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 6rem;
+            font-weight: 900;
+            line-height: 0.85;
+            text-transform: uppercase;
+            color: white;
+            margin-bottom: 2rem;
+            letter-spacing: -0.05em;
+        }
+        .spec-item {
+            border-left: 2px solid #ff5f00;
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+        }
+        .spec-label {
+            font-size: 0.75rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .spec-value {
+            font-size: 1.5rem;
+            color: white;
+            font-weight: 700;
+        }
+        .product-price {
+            font-size: 2.5rem;
+            color: #ff5f00;
+            font-weight: 900;
+            margin-top: 2rem;
+        }
+        .product-series {
+            color: #ff5f00;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary overflow-x-hidden">
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-[100] flex justify-between items-center px-10 py-5 bg-neutral-950/95 backdrop-blur-sm border-b border-neutral-800">
+    <div class="text-2xl font-black italic text-white tracking-tighter font-['Space_Grotesk'] uppercase">VELOCORE</div>
+    <div class="hidden md:flex items-center gap-8">
+        <a class="text-orange-500 border-b-2 border-orange-600 pb-1 font-['Space_Grotesk'] font-bold tracking-tighter uppercase transition-all duration-200" href="bikes.html">Bikes</a>
+        <a class="text-neutral-400 font-medium font-['Space_Grotesk'] font-bold tracking-tighter uppercase hover:text-orange-500 hover:border-neutral-700 transition-all duration-200" href="#">Engineering</a>
+        <a class="text-neutral-400 font-medium font-['Space_Grotesk'] font-bold tracking-tighter uppercase hover:text-orange-500 hover:border-neutral-700 transition-all duration-200" href="index.html">Performance</a>
+        <a class="text-neutral-400 font-medium font-['Space_Grotesk'] font-bold tracking-tighter uppercase hover:text-orange-500 hover:border-neutral-700 transition-all duration-200" href="#">Store</a>
+    </div>
+    <div class="flex items-center gap-6">
+        <button class="font-['Space_Grotesk'] font-bold tracking-tighter uppercase text-neutral-400 hover:text-white transition-colors duration-200">Login</button>
+        <button class="bg-primary-container text-on-primary px-6 py-2 font-['Space_Grotesk'] font-bold tracking-tighter uppercase active:scale-95 duration-100">Configure</button>
+    </div>
+</nav>
+
+<main class="pt-32">
+    <!-- Hero Section -->
+    <section class="px-10 mb-20">
+        <div class="max-w-container-max mx-auto">
+            <span class="text-primary-container font-label-caps mb-4 block">ELITE PERFORMANCE LINEUP</span>
+            <h1 class="font-display-xl text-display-xl mb-6 max-w-4xl">PRECISION <span class="text-primary-container italic">ENGINEERED</span> FOR THE LIMIT.</h1>
+            <p class="text-on-surface-variant font-body-lg max-w-2xl">From the alpine peaks to the fastest criterium circuits, our 2024 collection redefines the relationship between rider and machine. Explore the pinnacle of carbon fiber technology.</p>
+        </div>
+    </section>
+
+    <!-- Product Lineup Section -->
+    <section id="product-lineup">
+        <div class="lineup-sticky-container">
+            <div class="product-layer active" data-product="0">
+                <div class="max-w-4xl">
+                    <span class="product-series">SERIES 01 / AERO</span>
+                    <h2 class="product-name">VELOX<br/>STRATOS</h2>
+                    <div class="flex gap-10">
+                        <div class="spec-item">
+                            <p class="spec-label">WEIGHT</p>
+                            <p class="spec-value">6.8 KG</p>
+                        </div>
+                        <div class="spec-item">
+                            <p class="spec-label">GROUPSET</p>
+                            <p class="spec-value">DURA-ACE DI2</p>
+                        </div>
+                    </div>
+                    <div class="product-price">$12,499</div>
+                </div>
+            </div>
+            <div class="product-layer" data-product="1">
+                <div class="max-w-4xl">
+                    <span class="product-series">SERIES 02 / CLIMB</span>
+                    <h2 class="product-name">ALTITUDE<br/>ULTIMATE</h2>
+                    <div class="flex gap-10">
+                        <div class="spec-item">
+                            <p class="spec-label">WEIGHT</p>
+                            <p class="spec-value">5.9 KG</p>
+                        </div>
+                        <div class="spec-item">
+                            <p class="spec-label">FRAME</p>
+                            <p class="spec-value">V-LIGHT CARBON</p>
+                        </div>
+                    </div>
+                    <div class="product-price">$11,200</div>
+                </div>
+            </div>
+            <div class="product-layer" data-product="2">
+                <div class="max-w-4xl">
+                    <span class="product-series">SERIES 03 / ENDURANCE</span>
+                    <h2 class="product-name">DOMANE<br/>X</h2>
+                    <div class="flex gap-10">
+                        <div class="spec-item">
+                            <p class="spec-label">WEIGHT</p>
+                            <p class="spec-value">7.4 KG</p>
+                        </div>
+                        <div class="spec-item">
+                            <p class="spec-label">TIRES</p>
+                            <p class="spec-value">32MM TUBELESS</p>
+                        </div>
+                    </div>
+                    <div class="product-price">$8,900</div>
+                </div>
+            </div>
+            <div class="product-layer" data-product="3">
+                <div class="max-w-4xl">
+                    <span class="product-series">SERIES 04 / TT</span>
+                    <h2 class="product-name">CHRONOS<br/>ELITE</h2>
+                    <div class="flex gap-10">
+                        <div class="spec-item">
+                            <p class="spec-label">CDA</p>
+                            <p class="spec-value">0.198 M²</p>
+                        </div>
+                        <div class="spec-item">
+                            <p class="spec-label">WHEELS</p>
+                            <p class="spec-value">DISC REAR</p>
+                        </div>
+                    </div>
+                    <div class="product-price">$15,500</div>
+                </div>
+            </div>
+            <div class="product-layer" data-product="4">
+                <div class="max-w-4xl">
+                    <span class="product-series">SERIES 05 / LAB</span>
+                    <h2 class="product-name">BLACK OPS<br/>V1</h2>
+                    <div class="flex gap-10">
+                        <div class="spec-item">
+                            <p class="spec-label">STATUS</p>
+                            <p class="spec-value">LIMITED 50</p>
+                        </div>
+                        <div class="spec-item">
+                            <p class="spec-label">DRIVE</p>
+                            <p class="spec-value">CERAMIC SPEED</p>
+                        </div>
+                    </div>
+                    <div class="product-price">$18,000</div>
+                </div>
+            </div>
+            <canvas id="lineup-canvas" class="cyclist-canvas"></canvas>
+        </div>
+    </section>
+
+    <!-- Technical Excellence Section (Bento Grid) -->
+    <section class="px-10 py-section-gap bg-background">
+        <div class="max-w-container-max mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-gutter h-auto md:h-[600px]">
+                <div class="md:col-span-2 md:row-span-2 bg-neutral-900 border border-neutral-800 p-10 flex flex-col justify-end group">
+                    <span class="material-symbols-outlined text-primary-container text-5xl mb-6">biotech</span>
+                    <h3 class="font-headline-md text-white mb-4 uppercase">Advanced Nanocarbon</h3>
+                    <p class="text-neutral-500">Our frames utilize ultra-high-modulus carbon fibers reinforced with carbon nanotubes for unparalleled stiffness-to-weight ratios.</p>
+                </div>
+                <div class="md:col-span-2 bg-neutral-950 border border-neutral-800 p-10 flex items-center gap-8">
+                    <div class="flex-1">
+                        <h3 class="font-headline-md text-white mb-2 uppercase">Wind-Tested</h3>
+                        <p class="text-neutral-500 text-sm">Every millimeter is sculpted in our proprietary wind tunnel to minimize drag at 45km/h.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-neutral-950 border-t border-neutral-900 w-full py-20 px-10 flex flex-col md:flex-row justify-between items-center gap-10">
+    <div class="text-xl font-black text-white font-['Space_Grotesk'] uppercase">VELOCORE</div>
+    <div class="flex flex-wrap justify-center gap-10">
+        <a class="text-neutral-600 font-['Space_Grotesk'] text-xs tracking-widest uppercase hover:text-white transition-colors" href="#">Privacy</a>
+        <a class="text-neutral-600 font-['Space_Grotesk'] text-xs tracking-widest uppercase hover:text-white transition-colors" href="index.html">Performance</a>
+    </div>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
